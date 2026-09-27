@@ -1,0 +1,10 @@
+<div class="lead-box" style="margin:28px 0">
+  <span class="badge">Free personal reading</span>
+  <h3 style="margin-top:10px">What do your numbers say about <em>you</em>?</h3>
+  <p class="muted">Enter your birthday and name — we'll calculate your Life Path, Destiny and Soul Urge numbers instantly and show how they interact.</p>
+  <form action="{{ site.baseurl }}/reading/" method="get" class="row">
+    <div><label for="bi-name-">First name</label><input id="bi-name-" name="fullname" required autocomplete="given-name"></div>
+    <div><label for="bi-dob-">Birthday</label><input id="bi-dob-" name="dob" type="date" required></div>
+    <div style="align-self:end"><button class="btn btn-primary btn-block" type="submit">Reveal My Numbers →</button></div>
+  </form>
+</div>

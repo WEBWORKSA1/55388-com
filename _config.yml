@@ -1,0 +1,5 @@
+title: 55388
+url: https://webworksa1.github.io
+baseurl: /55388-com   # set to "" after pointing 55388.com at GitHub Pages
+markdown: kramdown
+exclude: [_src, README.md, PROMPT.md, Gemfile, Gemfile.lock, node_modules]

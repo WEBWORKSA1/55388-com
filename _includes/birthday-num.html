@@ -1,0 +1,10 @@
+<div class="lead-box" style="margin:28px 0">
+  <span class="badge">Free personal reading</span>
+  <h3 style="margin-top:10px">What does {{ include.ctx }} mean for <em>you</em> specifically?</h3>
+  <p class="muted">Enter your birthday and name — we'll calculate your Life Path, Destiny and Soul Urge numbers instantly and show how they interact with {{ include.ctx }}.</p>
+  <form action="{{ site.baseurl }}/reading/" method="get" class="row">
+    <div><label for="bi-name-{{ include.ctx }}">First name</label><input id="bi-name-{{ include.ctx }}" name="fullname" required autocomplete="given-name"></div>
+    <div><label for="bi-dob-{{ include.ctx }}">Birthday</label><input id="bi-dob-{{ include.ctx }}" name="dob" type="date" required></div>
+    <div style="align-self:end"><button class="btn btn-primary btn-block" type="submit">Reveal My Numbers →</button></div>
+  </form>
+</div>
