@@ -1,0 +1,5 @@
+/* SITE */
+Name: 55388 — The Number Universe
+URL: https://55388.com
+Standards: HTML5, CSS3, ES2020
+Built with: Jekyll on GitHub Pages
