@@ -1,0 +1,27 @@
+---
+layout: default
+---
+{%- assign k = page.lp -%}
+{%- assign L = site.data.lifepath[k] -%}
+{%- assign b = site.data.digits[L.base] -%}
+{%- capture q1 %}What does Life Path {{ k }} mean?{% endcapture -%}
+{%- capture a1 %}Life Path {{ k }} is {{ L.arch }}: {{ L.trait }}{% endcapture -%}
+{%- capture q2 %}What is the biggest challenge for Life Path {{ k }}?{% endcapture -%}
+{%- capture q3 %}Best careers for Life Path {{ k }}?{% endcapture -%}
+{%- capture q4 %}Who is Life Path {{ k }} compatible with?{% endcapture -%}
+{%- capture a4 %}Typically most at ease with Life Paths {{ L.comp }}.{% endcapture -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://55388.com/"},{"@type":"ListItem","position":2,"name":"Numerology","item":"https://55388.com/numerology/"},{"@type":"ListItem","position":3,"name":"Life Path {{ k }}"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":{{ q1 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a1 | jsonify }}}},{"@type":"Question","name":{{ q2 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ L.chal | jsonify }}}},{"@type":"Question","name":{{ q3 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ L.careers | jsonify }}}},{"@type":"Question","name":{{ q4 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a4 | jsonify }}}}]}</script>
+<section class="section-tight"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ site.baseurl }}/index.html">Home</a> › <a href="{{ site.baseurl }}/numerology/">Numerology</a> › <span>Life Path {{ k }}</span></nav><div class="article"><article class="prose">
+<span class="eyebrow">Life Path number</span><h1>Life Path {{ k }}: {{ L.arch }}</h1><p class="lead" style="font-size:1.15rem">{{ L.trait | escape }} {{ L.core | escape }}</p>
+<div class="keyfacts"><div><b>Archetype</b><span>{{ L.arch }}</span></div><div><b>Keywords</b><span>{{ L.kw }}</span></div><div><b>Best matches</b><span>{{ L.comp }}</span></div></div>
+<div class="ad-slot" data-slot="header" aria-label="Advertisement">Advertisement</div>
+<h2>Strengths</h2><p>{{ L.trait | escape }} {{ b.core }}</p>
+<h2>Challenges</h2><p>{{ L.chal | escape }} Awareness is the fix: notice the pattern and choose the opposite on purpose.</p>
+<h2>Love &amp; relationships</h2><p>{{ b.love }}</p>
+<h2>Career &amp; money</h2><p><strong>Ideal fields:</strong> {{ L.careers }} {{ b.career }} {{ b.money }}</p>
+{% include birthday.html %}
+<h2>Your life path in action</h2><p>{{ b.action }}</p>
+<div class="ad-slot" data-slot="inArticle" aria-label="Advertisement">Advertisement</div>
+<h2>FAQ</h2><div class="faq"><details><summary>{{ q1 | escape }}</summary><p>{{ a1 | escape }}</p></details><details><summary>{{ q2 | escape }}</summary><p>{{ L.chal | escape }}</p></details><details><summary>{{ q3 | escape }}</summary><p>{{ L.careers | escape }}</p></details><details><summary>{{ q4 | escape }}</summary><p>{{ a4 | escape }}</p></details></div>
+<p><a class="btn btn-ghost" href="{{ site.baseurl }}/tools/compatibility-calculator/">Check compatibility with someone →</a></p>
+</article>{% include sidebar.html %}</div></div></section>{% include newsletter.html %}

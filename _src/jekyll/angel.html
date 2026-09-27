@@ -1,0 +1,88 @@
+---
+layout: default
+---
+{%- assign s = page.n -%}
+{%- assign a = site.data.angels[s] -%}
+{%- assign D = site.data.digits[a.dom] -%}
+{%- assign twin = site.data.twin[a.dom] -%}
+{%- assign R = site.data.roots[a.root] -%}
+{%- if a.score >= 70 %}{% assign lucky = "yes — it is considered very fortunate" %}{% elsif a.score >= 50 %}{% assign lucky = "mostly neutral to positive" %}{% else %}{% assign lucky = "traditionally not — several digits carry unlucky sound-alikes" %}{% endif -%}
+{%- if a.intro %}{% assign intro = a.intro %}{% else %}{% capture intro %}Seeing {{ s }} again and again? In numerology, {{ s }} is driven by the energy of {{ a.dom }} — {{ D.name | downcase }} — and reduces to the root number {{ a.root }} ({{ R.name }}). Together they point to {{ D.kw[0] }}, {{ D.kw[1] }}, {{ D.kw[2] }}.{% endcapture %}{% endif -%}
+{%- assign B = site.baseurl | append: "/" -%}
+{%- capture q1 %}What does {{ s }} mean spiritually?{% endcapture -%}
+{%- capture a1 %}{{ s }} carries the amplified energy of {{ a.dom }} ({{ D.name }}) and reduces to {{ a.root }} ({{ R.name }}). Spiritually it points to {{ D.kw | join: ", " }}. {{ D.action }}{% endcapture -%}
+{%- capture q2 %}What does {{ s }} mean in love?{% endcapture -%}
+{%- capture q3 %}Is {{ s }} a twin flame number?{% endcapture -%}
+{%- capture a3 %}Many readers link {{ s }} to {{ twin }}{% endcapture -%}
+{%- capture q4 %}What does {{ s }} mean for money and career?{% endcapture -%}
+{%- capture a4 %}{{ D.career }} {{ D.money }}{% endcapture -%}
+{%- capture q5 %}Is {{ s }} lucky in Chinese culture?{% endcapture -%}
+{%- capture a5 %}Using traditional homophones, {{ s }} scores {{ a.score }}/100 on our Chinese luck scale — {{ lucky }}.{% endcapture -%}
+{%- capture q6 %}What should I do when I keep seeing {{ s }}?{% endcapture -%}
+{%- capture a6 %}Pause and note what you were thinking at that moment. Then act on the message: {{ D.action }}{% endcapture -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://55388.com/"},{"@type":"ListItem","position":2,"name":"Angel Numbers","item":"https://55388.com/angel-numbers/"},{"@type":"ListItem","position":3,"name":{{ s | jsonify }}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":{{ q1 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a1 | jsonify }}}},
+{"@type":"Question","name":{{ q2 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ D.love | jsonify }}}},
+{"@type":"Question","name":{{ q3 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a3 | jsonify }}}},
+{"@type":"Question","name":{{ q4 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a4 | jsonify }}}},
+{"@type":"Question","name":{{ q5 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a5 | jsonify }}}},
+{"@type":"Question","name":{{ q6 | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ a6 | jsonify }}}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"{{ s }} Angel Number Meaning","description":{{ page.description | jsonify }},"author":{"@type":"Organization","name":"55388 Editorial"},"publisher":{"@type":"Organization","name":"55388"},"mainEntityOfPage":"https://55388.com/angel-numbers/{{ s }}/"}</script>
+<section class="section-tight"><div class="container">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ B }}index.html">Home</a> › <a href="{{ B }}angel-numbers/">Angel Numbers</a> › <span>{{ s }}</span></nav>
+<div class="article">
+<article class="prose">
+  <span class="eyebrow">Angel number · {{ a.pl }}</span>
+  <h1>{{ s }} Angel Number Meaning</h1>
+  <p class="lead" style="font-size:1.15rem">{{ intro | escape }}</p>
+  <div class="keyfacts">
+    <div><b>Root number</b><span>{{ a.root }} · {{ R.name }}</span></div>
+    <div><b>Pattern</b><span>{{ a.pl }}</span></div>
+    <div><b>Core energy</b><span>{{ a.dom }} · {{ D.name }}</span></div>
+    <div><b>Chinese luck</b><span>{{ a.score }}/100</span></div>
+  </div>
+  <button class="btn btn-ghost" data-share="Angel number {{ s }} meaning">Share this meaning ↗</button>
+  <div class="ad-slot" data-slot="header" aria-label="Advertisement">Advertisement</div>
+  <h2 id="meaning">What does {{ s }} mean?</h2>
+  <p>{{ D.core }}</p>
+  <p><strong>Pattern:</strong> {{ a.pt }}</p>
+  <p><strong>Numerology reduction:</strong> {{ a.red }}. {{ R.core }}</p>
+  <table><thead><tr><th>Digit</th><th>Energy</th><th>Keywords</th></tr></thead><tbody>
+  {%- for c in a.counts %}{% assign dd = site.data.digits[c[0]] %}<tr><td><strong>{{ c[0] }}</strong> ×{{ c[1] }}</td><td>{{ dd.name }}</td><td>{{ dd.kw | join: ", " }}</td></tr>{% endfor -%}
+  </tbody></table>
+  {%- if a.layers %}
+  <h3>Reading {{ s }} in layers</h3><ul>
+  <li><strong>Cause ({{ a.layers.cause }}):</strong> {{ site.data.digits[a.layers.cause].short }}</li>
+  <li><strong>Core message ({{ a.layers.core }}):</strong> {% for c in a.layers.cu %}{% unless forloop.first %}{{ " " }}{% endunless %}{{ site.data.digits[c].name }}{% endfor %} — the heart of what this number wants you to notice.</li>
+  <li><strong>Outcome ({{ a.layers.out }}):</strong> {{ site.data.digits[a.layers.out].short }}</li></ul>
+  {%- endif %}
+  {% include birthday-num.html ctx=s %}
+  <h2 id="love">{{ s }} meaning in love &amp; relationships</h2>
+  <p>{{ D.love }}</p>
+  <h3>{{ s }} and twin flames</h3>
+  <p>For twin-flame seekers, {{ s }} is commonly read as {{ twin }}</p>
+  <div class="ad-slot" data-slot="inArticle" aria-label="Advertisement">Advertisement</div>
+  <h2 id="career">{{ s }} meaning for career &amp; business</h2>
+  <p>{{ D.career }}</p>
+  <h2 id="money">{{ s }} and money</h2>
+  <p>{{ D.money }}</p>
+  <p><a class="btn btn-ghost" href="{{ B }}business-lucky-number-audit/">Using {{ s }} in a phone number, address or launch date? Get a business number audit →</a></p>
+  <h2 id="chinese">{{ s }} in Chinese number symbolism</h2>
+  <p>Digits: {{ a.ch }}. On our homophone-based scale {{ s }} scores <strong>{{ a.score }}/100</strong> — {{ lucky }}.</p>
+  {%- if a.combos.size > 0 %}<ul>{% for c in a.combos %}<li><strong>{{ c[0] }}</strong> — {{ c[1] | escape }}</li>{% endfor %}</ul>{% endif %}
+  <p><a href="{{ B }}tools/chinese-lucky-number-checker/?n={{ s }}">Check any phone or plate number's Chinese luck →</a></p>
+  <h2 id="action">What to do when you see {{ s }}</h2>
+  <ol><li><strong>Pause &amp; note:</strong> write down what you were thinking or doing when {{ s }} appeared — that's the context of the message.</li>
+  <li><strong>Act:</strong> {{ D.action }}</li>
+  <li><strong>Personalize it:</strong> compare {{ s }} with your own Life Path number to see whether it supports or challenges your natural path. <a href="{{ B }}tools/life-path-calculator/">Calculate yours free</a>.</li></ol>
+  <div class="ad-slot" data-slot="inArticle" aria-label="Advertisement">Advertisement</div>
+  <h2 id="faq">{{ s }} angel number FAQ</h2>
+  <div class="faq"><details><summary>{{ q1 | escape }}</summary><p>{{ a1 | escape }}</p></details><details><summary>{{ q2 | escape }}</summary><p>{{ D.love | escape }}</p></details><details><summary>{{ q3 | escape }}</summary><p>{{ a3 | escape }}</p></details><details><summary>{{ q4 | escape }}</summary><p>{{ a4 | escape }}</p></details><details><summary>{{ q5 | escape }}</summary><p>{{ a5 | escape }}</p></details><details><summary>{{ q6 | escape }}</summary><p>{{ a6 | escape }}</p></details></div>
+  <h2>Related numbers</h2>
+  <div class="num-grid">{% for x in a.rel %}{% assign fd = x | slice: 0 %}<a href="{{ B }}angel-numbers/{{ x }}/">{{ x }}<small>{{ site.data.digits[fd].name | split: " " | first }}</small></a>{% endfor %}</div>
+  <p class="small muted" style="margin-top:20px">For entertainment and self-reflection. Meanings are drawn from Pythagorean numerology and popular Chinese homophone traditions. <a href="{{ B }}disclaimer/">Disclaimer</a>.</p>
+</article>
+{% include sidebar.html %}
+</div></div></section>
+{% include newsletter.html %}
