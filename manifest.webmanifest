@@ -1,0 +1,15 @@
+{
+  "name": "55388 — The Number Universe",
+  "short_name": "55388",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0d1a",
+  "theme_color": "#0b0d1a",
+  "icons": [
+    {
+      "src": "assets/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

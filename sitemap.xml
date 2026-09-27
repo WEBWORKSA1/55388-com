@@ -1,0 +1,11 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in site.pages -%}
+{%- unless p.noindex or p.url contains 'lookup' or p.url contains '.xml' or p.url contains '.txt' or p.url contains '.webmanifest' %}
+  <url><loc>https://55388.com{{ p.url | replace: 'index.html', '' }}</loc><lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod></url>
+{%- endunless -%}
+{%- endfor %}
+</urlset>
